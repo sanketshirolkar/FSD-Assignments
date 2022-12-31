@@ -1,0 +1,972 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+:root {
+    --swiper-navigation-size: 30px;
+}
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Poppins',sans-serif;
+}
+body{
+    background-color: #f7f7f7;
+}
+a{
+    text-decoration: none
+}
+section{
+    background-color: #f7f7f7;
+}
+
+/* utility classes */
+
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+.blue{
+    background-color: #17177e;
+}
+.red{
+    background-color: #c4161c;
+}
+.blue-text{
+    color: #17177e;
+}
+.red-text{
+    color: #c4161c;
+}
+.active{
+    color: white !important;
+    background-color: #c4161c !important;
+    border: none !important;
+}
+
+.hidden{
+    display: none;
+}
+
+/* navbar design */
+
+.navbar {
+    height: 64px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+.logos-container{
+    width: 32%;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    background-image: url(./img/Ecom-express_logo.png);
+    background-position: center;
+    background-size:contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 150px;
+}
+.gptw{
+    background-image: url(./img/GPTW.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 50px;
+}
+.navbar-container{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 49%;
+    font-size: 16px;
+    font-weight: 450; 
+}
+.menu-items a{
+    color: black;
+}
+.menu-items-side a{
+    border-radius: 8px;
+    padding: 5px 12px;
+    color: white;
+    font-weight: 400;
+}
+
+.hamburger{
+    height:60%;
+    width:12%;
+    background-color: rgba(255, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    display: none;
+}
+.lines{
+    background-color: rgb(0, 0, 0);
+    height:2px;
+}
+.line1{
+    transition: all 500ms ease-in-out;
+    transform-origin: left;
+}
+.line2{
+    transition: all 500ms ease-in-out;
+    transform-origin: right;
+}
+.line3{
+    transition: all 500ms ease-in-out;
+    transform-origin: left;
+}
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    .navbar{
+        width: 100%;
+        justify-content: space-evenly;
+        position: relative;
+    }
+    .logos-container{
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .logo{
+        height: 100%;
+        width: 60%;
+    }
+    .gptw{
+        background-image: url(./img/GPTW.png);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 30%;
+    }
+    .navbar-container{
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .menu-items {
+        margin-top: 64px;
+        height: calc(100vh - 64px);
+        width: max-content;
+        position: absolute;
+        left: 68%;
+        right: 0%;
+        top: 0%;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 13%;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: #c4161cbe;
+        transition: all 0.5s ease-in-out;
+        transform-origin: right;
+        transform: scaleX(0);
+    }
+    .menu-items li{
+        padding-top: 20px;
+    }
+    .menu-items a{
+        color: #ffffff;
+        cursor: pointer;
+    }
+    .menu-items-side {
+        width: 80% !important;
+        justify-content: space-evenly;
+    }
+    
+    .menu-items-side a{
+        font-size: 8px;
+        padding: 6px 6px 6px 6px;
+    }
+
+    .hamburger{
+        order: 2;
+        display: flex;
+    }
+    .open.line1{
+        transition: all 500ms ease-in-out;
+        transform-origin: left;
+        transform: rotateZ(30deg);
+    }
+    .open.line2{
+        transition: all 500ms ease-in-out;
+        transform:rotateY(90deg);
+    }
+    .open.line3{
+        transition: all 500ms ease-in-out;
+        transform-origin: left;
+        transform: rotateZ(-30deg);
+    }
+  }
+
+
+
+
+/* about section styling */
+#about-section{
+    height: 100vh;
+    width: 100%;
+}
+
+.about{
+    background-image: url(./img/bg.jpg);
+    background-position:left;
+    background-size: contain;
+    background-repeat: repeat;
+    height: 90%;
+    width: 100%;
+    border-bottom: 6px dashed rgb(48, 46, 46);
+    border-radius: 0% 0% 100% 30%;
+    position: relative;
+    opacity: 20%;
+}
+
+.about-text{
+    position: absolute;
+    top:30%;
+    left:5%;
+    
+}
+.about-text h1 {
+    font-size: 48px;
+    font-weight: 600;
+}
+.about-text h3 {
+    font-size: 26px;
+    color: black;
+    font-weight: 400;
+}
+
+.about-img{
+    position: absolute;
+    top:32%;
+    left:50%;
+    height: 500px;
+    width: 500px;
+    background-image: url(./img/about-us-infographic.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    
+    .about{
+        background-image: url(./img/bg.jpg);
+        background-position:left;
+        background-size: contain;
+        background-repeat: repeat;
+        height: 92%;
+        width: 100%;
+        border-bottom: 6px dashed rgb(48, 46, 46);
+        border-radius: 0% 0% 70% 0%;
+        position: relative;
+        opacity: 20%;
+    }
+
+    .about-text h1 {
+        font-size: 26px;
+        font-weight: 600;
+    }
+    
+    .about-img{
+        position: absolute;
+        top:60%;
+        left:1%;
+        height: 350px;
+        width: 350px;
+        background-image: url(./img/about-us-infographic.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+  }
+
+
+/* about ecom express styling */
+
+#about-Ecom{
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 15px;
+}
+.about-Ecom-img{
+    height: 50%;
+    width: 40%;
+    background-image: url(./img/aboutus-info.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 7%;
+}
+.about-Ecom-text{
+    height: 50%;
+    width: 50%;
+    margin-top: 15px;
+}
+.about-Ecom-text span{
+    font-size: 28px;
+    font-weight: 600;
+}
+.about-Ecom-text p{
+    font-size: 14px;
+    margin-top: 10px;
+}
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    #about-Ecom{
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .about-Ecom-img{
+        height: 250px;
+        width: 100%;
+        background-image: url(./img/aboutus-info.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        order: 1;
+    }
+    .about-Ecom-text{
+        width: 100%;
+        padding: 2px 12px 2px 12px;
+    }
+  }
+
+/* vison-values section styling */
+#vison-values{
+    height: 100vh;
+    
+}
+.vision-values-text{
+    height: 18%;
+    width: 100%;
+    text-align: center;
+}
+.vision-values-text span{
+    font-size: 28px;
+    font-weight: 600;
+}
+.vision-values-text p{
+    font-size: 14px;
+    margin-top: 10px;
+}
+.vision-values-cards-container{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.vision-values-card{
+    height: 100%;
+    width: 19.5%;
+    background-color: #00000041;
+}
+.vision-values-card .hidden{
+    display: none;
+}
+.vision-values-card:hover .hidden{
+    display: block;
+}
+.card1,.card2,.card3,.card4,.card5{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0px 0px 12px 10px;
+    position: relative;
+}
+
+.card1 h1,.card2 h1,.card3 h1,.card4 h1,.card5 h1 {
+    color: white;
+    font-size: 28px;
+    font-weight: 400;
+    
+}
+.card1 p,.card2 p,.card3 p,.card4 p,.card5 p {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    
+}
+.card1{
+    background-image: url(./img/integrity.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card2{
+    background-image: url(./img/commitment.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card3{
+    background-image: url(./img/Openness.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card4{
+    background-image: url(./img/Respect.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card5{
+    background-image: url(./img/passion.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.darker{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.7;
+    position: absolute;
+    bottom:0px;
+    left: 0px;
+}
+.card{
+    position: absolute;
+}
+
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    #vison-values{
+        height: auto;
+    }
+    .vision-values-text{
+        width: 100%;
+        text-align: center;
+    }
+    .vision-values-cards-container{
+        width: 100%;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+    .vision-values-card{
+        height: 340px;
+        width: 100%;
+        background-color: #00000041;
+    }
+  }
+
+/* team section styling */
+.leadership-team-text{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+.leadership-team-text span{
+    font-size: 28px;
+    font-weight: 600;
+}
+.gallery-buttons{
+    margin-top: 35px;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 450; 
+    margin-left: auto;
+}
+
+.gallery-buttons li{
+    display: inline;
+}
+.gallery-buttons button{
+    border-radius: 25px;
+    padding: 16px 30px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    font-size: 22px;
+    background-color: #ffffff;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.members-section1,.members-section2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%; 
+}
+.member{
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.member-img{
+    height: 70%;
+    width: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 50%;
+}
+.member-info{
+    margin-top: 10px;
+}
+.member-info h1{
+    font-weight: 500;
+}
+.member1{
+    background-image: url(./img/T.A.Krishnan-180x180.jpg);
+}
+.member2{
+    background-image: url(./img/K-Satyanarayana-180x180.jpg);
+}
+.member3{
+    background-image: url(./img/Manju-Dhawan-180x180.jpg);
+}
+.member4{
+    background-image: url(./img/Sanjeev-Saxena-180x180.jpg);
+}
+.member5{
+    background-image: url(./img/Viraj-Sawhney-180x180.jpg);
+}
+.member6{
+    background-image: url(./img/Himanshu-Nema-180x180.jpg);
+}
+.member7{
+    background-image: url(./img/Rajiv-Kapoor-180x180.jpg);
+}
+.member8{
+    background-image: url(./img/Girish-Lakshman-180x180.jpg);
+}
+.member9{
+    background-image: url(./img/V-Anantharaman-180x180.jpg);
+}
+.member10{
+    background-image: url(./img/Rohit-Anand-180x180.jpg);
+}
+.member11{
+    background-image: url(./img/Manas-1-180x180.jpg);
+}
+.member12{
+    background-image: url(./img/Vageesh-1-180x180.jpg);
+}
+.member13{
+    background-image: url(./img/Kalpana-Iyer-180x180.jpg);
+}
+.member14{
+    background-image: url(./img/Vishwachetan-Nadamani-180x180.jpg);
+}
+.member15{
+    background-image: url(./img/Vipul-Agarwal-180x180.jpg);
+}
+.member16{
+    background-image: url(./img/Ashish-Sikka-180x180.jpg);
+}
+.member17{
+    background-image: url(./img/Amit-180x180.jpg);
+}
+.member18{
+    background-image: url(./img/Dipanjan-Banerjee-180x180.jpg);
+}
+.member19{
+    background-image: url(./img/Lakshmanan-S-180x180.jpg);
+}
+.member20{
+    background-image: url(./img/Prashant-180x180.jpg);
+}
+.member21{
+    background-image: url(./img/Rahul-Tandon-180x180.jpg);
+}
+.member22{
+    background-image: url(./img/Sonam-Paliwal-180x180.jpg);
+}
+.member23{
+    background-image: url(./img/Manuj-Khurana-180x180.jpg);
+}
+
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    
+    .gallery-buttons ul{
+        display: inline;
+    }
+    .gallery-buttons button{
+        margin-top: 20px;
+    }
+    .members-section1,.members-section2{
+        display: flex;
+        flex-direction: column;
+        width: 100%; 
+    }
+  }
+
+/* Corporate Social Responsibility styling */
+
+#social-responsibility {
+    margin-top: 12rem;
+}
+#social-responsibility h1{
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.drives-container{
+    display: flex;
+}
+
+.drives-heading{
+    width: 40%;
+   position: relative;
+}
+.bg-img{
+    background-image: url(./img/globe-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -99;
+    opacity: 0.3;
+    padding: 0%;
+}
+.drives-heading ul{
+    margin: 10% 1% 1% 10%;
+}
+.drives-heading ul li{
+    width: max-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    cursor: pointer;
+}
+.drives-data{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4% 2% 4% 2%;
+    background-color: #f8f8f8;
+}
+.drives-data-text{
+    font-size: 16px;
+    font-weight: 300;
+}
+.drives-data-images{
+    display: flex;
+    flex-wrap: wrap;
+}
+.drives-data-images-img{
+    height: 120px;
+    width: 130px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin: 2% 0.5% 1% 0.5%;
+}
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    .drives-container{
+        width: 100%;
+        
+    }
+    .drives-data{
+        display: none;
+    }
+  }
+
+/* awards section styling */
+#awards{
+    margin-top: 4%;
+    text-align: center;
+    height: 90vh;
+}
+#awards h1{
+    display: inline;
+    font-size: 32px;
+    font-weight: 600;
+}
+.awards-swiper-container{
+    position: relative;
+    height: 100%;
+}
+.awards-bg{
+    position: absolute;
+    background-image: url(./img/trophy-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.15;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -99;
+    padding: 0%;
+}
+
+  .swiper {
+    width: 70%;
+    height: 100%;
+    position: static;
+    padding-top: 30px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 5%;
+    padding: 10px;
+    
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  .swiper-pagination-bullets{
+    display: none;
+  }
+  .swiper-wrapper{
+    position: static;
+    height: 60%;
+    margin-top: 20px;
+  }
+  .swiper-button-prev,.swiper-button-next{
+    color: black;
+    font-weight: 900 !important;
+    opacity: 1 !important;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    height: 45px !important;
+    width: 45px !important;
+    top: 45% !important;
+    
+  }
+  .swiper-button-prev{
+    left: 8%;
+  }
+  .swiper-button-next{
+    right: 8%;
+  }
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    #awards{
+        margin-top: 150px;
+    }
+    .swiper{
+        height: 80%;
+        width: 90%;
+    }
+    .swiper-button-prev,.swiper-button-next{
+        top: 285px !important;
+    }
+    .swiper-button-prev{
+        left: 6px;
+      }
+      .swiper-button-next{
+        right: 6px;
+      }
+  }
+
+
+/* footer section styling */
+#footer{
+    position: relative;
+}
+.footer-container{
+    height: 90%;
+    width: 100%;
+}
+.footer-container hr{
+    margin-top: 20px;
+}
+.first-container{
+    display: flex;
+    height: 20%;
+    width: 70%;
+    margin-left: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo-container{
+    height: 100px;
+    width: 20%;
+    background-image: url(./img/Ecom-express_logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.connect-container{
+    height: 80%;
+    width: 70%;
+    display: flex;
+    border: 2px solid #e0e0e0;
+    border-radius: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.connect-container h1{
+    font-size: 24px;
+    color: #17177e;
+}
+.connect-container ul li{
+    cursor: pointer;
+    height: 70%;
+    width: 200px;
+    background-color: #c4161c;
+    border: 5px solid white;
+    color: white;
+    outline: 1px solid red;
+    font-size: 16px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        height: 20%;
+        width: 100%;
+        margin-left: 10px;
+       align-items: center;
+    }
+    .logo-container{
+        height: 100px;
+        width: 50%;
+    }
+    .connect-container{
+        height: 100%;
+        width: 100%;
+    }
+    .connect-container h1{
+        font-size: 14px;
+    }
+    
+}
+
+
+.links-container{
+    width: 75%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px 0px 40px;
+}
+table{
+    display: flex;
+    font-size: 14px;
+}
+tr{
+    display: inline;
+}
+
+th{
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 20px;
+}
+td{
+    display: block;
+    cursor: pointer;
+    width: max-content;
+    margin-top: 6px;
+}
+
+.social-container{
+    height: 10%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 40px;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-top: 120px;
+}
+.social-container p{
+    font-size: 14px;
+}
+.social-container i{
+    font-size: 32px;
+    margin-left: 20px;
+}
+.footer-side-img{
+    position: absolute;
+    top: 10px;
+    left: 78%;
+    background-image: url(./img/phone-in-hand.png);
+    background-size: cover;
+    height: 100%;
+    width: 20%;
+}
+/* PHONE PORTRAIT VERSION */
+@media only screen and (min-width: 320px) and (orientation: portrait) {
+    .links-container{
+        height: 80%;
+        flex-direction: column;
+    }
+    .social-container{
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .icons-container{
+       margin-top: 10px;
+       align-self: center;
+    }
+    .footer-side-img{
+        height: 300px;
+        width: 200px;
+        left: 55%;
+        top: 20%;
+    }
+}
+
+.hidden{
+    display: none;
+}
+.opened{
+    display: flex;
+    transition: all 0.5s ease-in-out;
+    transform-origin: right;
+    transform: scaleX(1);
+}
